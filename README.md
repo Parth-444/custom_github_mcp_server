@@ -12,6 +12,8 @@ This project provides simple MCP tools to interact with a GitHub repository usin
 
 - Fetch and read the content of a specific file (e.g. README.md)
 
+- Fetches a repository tree.
+
 ## Current Scope
 
 - Works only with repositories owned by the authenticated user
@@ -20,17 +22,22 @@ This project provides simple MCP tools to interact with a GitHub repository usin
 
 - Designed for lightweight, LLM-friendly responses
 
+- Gets more info about the user's repo by fetching the whole repo tree.
+
 ## Tools
 
 - list_repos() – Lists repositories owned by the authenticated user
 
 - list_files_in_repos(repo_name) – Lists files and folders in the repository root
 
-- get_file_content(repo_name, file_name) – Fetches and returns decoded file content
+- get_file_content(repo_name, path) – Fetches and returns decoded file content
+
+- get_repo_tree - Fetches the repo tree
 
 ## Notes
 
 - File contents are automatically Base64-decoded
 
 - Intended as a minimal, extensible foundation for MCP-based GitHub tooling
+
 

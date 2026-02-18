@@ -27,6 +27,13 @@ class GithubClient:
     
 
 client = GithubClient()
+
+@mcp.tool()
+def get_username():
+    """return username of authenticated user"""
+    user = client.get("/user")
+    return user["login"]
+
 @mcp.tool()
 def list_repos():
     """
@@ -61,7 +68,7 @@ def list_files_in_repos(repo_name):
         }
         for item in contents
     ]
-# change get_file_content to take path as parameter
+
 @mcp.tool()
 def get_file_content(repo_name, path):
     """
@@ -130,7 +137,8 @@ def get_repo_tree(repo_name, path="", max_depth=4):
 if __name__ == "__main__":
     
     user = client.get("/user")
-    print(user["login"])
-    mcp.run(host="0.0.0.0", port=8000)
+    # print(user["login"])
+    # mcp.run(host="0.0.0.0", port=8000)
+    mcp.run()
 
 
